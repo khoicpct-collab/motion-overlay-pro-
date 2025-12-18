@@ -6,15 +6,15 @@
       "use": "@vercel/static-build"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ],
   "headers": [
     {
-      "source": "/(.*\\.(js|css|png|jpg|gif|svg))",
+      "source": "/(.*\\.(js|css|png|jpg|gif|svg|ico|json))",
       "headers": [
         {
           "key": "Cache-Control",
@@ -23,11 +23,23 @@
       ]
     },
     {
-      "source": "/",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
