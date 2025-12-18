@@ -1,23 +1,16 @@
 {
   "name": "motion-overlay-pro",
   "version": "1.0.0",
-  "description": "Professional Motion Overlay GIF Simulator",
-  "main": "app.js",
+  "description": "Motion Overlay GIF Simulator",
   "scripts": {
     "dev": "live-server . --port=3000",
-    "build": "echo 'No build required'",
-    "deploy": "vercel --prod"
+    "build": "echo 'No build step' && exit 0",
+    "start": "live-server . --port=3000"
   },
-  "keywords": [
-    "gif",
-    "animation",
-    "motion",
-    "overlay",
-    "simulator"
-  ],
-  "author": "Motion Overlay Pro",
-  "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
